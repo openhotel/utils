@@ -1,2 +1,1 @@
-
-export * from './cors.consts.ts'
+export * from "./cors.consts.ts";

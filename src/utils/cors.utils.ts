@@ -1,4 +1,4 @@
-import {CORS_HEADERS} from "../consts/cors.consts.ts";
+import { CORS_HEADERS } from "../consts/cors.consts.ts";
 
 export const getCORSHeaders = (): Headers => {
   const headers = new Headers();
