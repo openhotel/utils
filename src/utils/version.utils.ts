@@ -48,11 +48,10 @@ export const isNewVersionGreater = (
   const newAdditionIndex = getVersionAdditionIndex(slicedNewVersion.additional);
 
   if (newAdditionIndex > oldAdditionIndex) return true;
+  if (newAdditionIndex < oldAdditionIndex) return false;
 
-  const isSameAdditional = newAdditionIndex === oldAdditionIndex;
   return (
-    isSameAdditional &&
     (slicedNewVersion.additionalPatch ?? 0) >
-      (slicedOldVersion.additionalPatch ?? 0)
+    (slicedOldVersion.additionalPatch ?? 0)
   );
 };
