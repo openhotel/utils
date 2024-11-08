@@ -39,7 +39,7 @@ export const isNewVersionGreater = (
   if (slicedNewVersion.major < slicedOldVersion.major) return false;
 
   if (slicedNewVersion.minor > slicedOldVersion.minor) return true;
-  if (slicedNewVersion.minor > slicedOldVersion.minor) return false;
+  if (slicedNewVersion.minor < slicedOldVersion.minor) return false;
 
   if (slicedNewVersion.patch > slicedOldVersion.patch) return true;
   if (slicedNewVersion.patch < slicedOldVersion.patch) return false;
