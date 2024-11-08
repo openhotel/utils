@@ -12,6 +12,6 @@
     "dayjs": "npm:dayjs@1.11.13"
   },
   "tasks": {
-    "test": "deno test --watch=./src"
+    "test:watch": "deno test --watch=./src"
   }
 }
