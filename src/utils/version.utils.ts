@@ -39,22 +39,19 @@ export const isNewVersionGreater = (
   if (slicedNewVersion.major < slicedOldVersion.major) return false;
 
   if (slicedNewVersion.minor > slicedOldVersion.minor) return true;
+  if (slicedNewVersion.minor > slicedOldVersion.minor) return false;
 
-  const isSameMinor = slicedNewVersion.minor === slicedOldVersion.minor;
-  if (isSameMinor && slicedNewVersion.patch > slicedOldVersion.patch)
-    return true;
+  if (slicedNewVersion.patch > slicedOldVersion.patch) return true;
 
   const isSamePatch = slicedNewVersion.patch === slicedOldVersion.patch;
 
   const oldAdditionIndex = getVersionAdditionIndex(slicedOldVersion.additional);
   const newAdditionIndex = getVersionAdditionIndex(slicedNewVersion.additional);
 
-  if (isSameMinor && isSamePatch && newAdditionIndex > oldAdditionIndex)
-    return true;
+  if (isSamePatch && newAdditionIndex > oldAdditionIndex) return true;
 
   const isSameAdditional = newAdditionIndex === oldAdditionIndex;
   return (
-    isSameMinor &&
     isSamePatch &&
     isSameAdditional &&
     (slicedNewVersion.additionalPatch ?? 0) >
