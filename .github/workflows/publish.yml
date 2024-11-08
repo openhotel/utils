@@ -36,6 +36,9 @@ jobs:
       - name: run prettier checker
         run: yarn prettier:check
 
+      - name: run tests
+        run: yarn test
+
       - name: Add version to package.json
         uses: jaywcjlove/github-action-package@main
         with:
