@@ -42,17 +42,15 @@ export const isNewVersionGreater = (
   if (slicedNewVersion.minor > slicedOldVersion.minor) return false;
 
   if (slicedNewVersion.patch > slicedOldVersion.patch) return true;
-
-  const isSamePatch = slicedNewVersion.patch === slicedOldVersion.patch;
+  if (slicedNewVersion.patch < slicedOldVersion.patch) return false;
 
   const oldAdditionIndex = getVersionAdditionIndex(slicedOldVersion.additional);
   const newAdditionIndex = getVersionAdditionIndex(slicedNewVersion.additional);
 
-  if (isSamePatch && newAdditionIndex > oldAdditionIndex) return true;
+  if (newAdditionIndex > oldAdditionIndex) return true;
 
   const isSameAdditional = newAdditionIndex === oldAdditionIndex;
   return (
-    isSamePatch &&
     isSameAdditional &&
     (slicedNewVersion.additionalPatch ?? 0) >
       (slicedOldVersion.additionalPatch ?? 0)
