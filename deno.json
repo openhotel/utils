@@ -11,7 +11,9 @@
 
     "@zip-js": "jsr:@zip-js/zip-js@2.7.53",
 
-    "dayjs": "npm:dayjs@1.11.13"
+    "dayjs": "npm:dayjs@1.11.13",
+
+    "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts"
   },
   "tasks": {
     "test:watch": "deno test --watch=./src"
