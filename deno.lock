@@ -10,6 +10,7 @@
     "jsr:@std/path@^1.0.6": "1.0.6",
     "jsr:@std/testing@*": "1.0.4",
     "jsr:@std/yaml@1.0.5": "1.0.5",
+    "jsr:@zip-js/zip-js@2.7.53": "2.7.53",
     "npm:dayjs@1.11.13": "1.11.13"
   },
   "jsr": {
@@ -55,12 +56,21 @@
     },
     "@std/yaml@1.0.5": {
       "integrity": "71ba3d334305ee2149391931508b2c293a8490f94a337eef3a09cade1a2a2742"
+    },
+    "@zip-js/zip-js@2.7.53": {
+      "integrity": "acea5bd8e01feb3fe4c242cfbde7d33dd5e006549a4eb1d15283bc0c778ed672"
     }
   },
   "npm": {
     "dayjs@1.11.13": {
       "integrity": "sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg=="
     }
+  },
+  "remote": {
+    "https://deno.land/x/bcrypt@v0.4.1/mod.ts": "ff09bdae282583cf5f7d87efe37ddcecef7f14f6d12e8b8066a3058db8c6c2f7",
+    "https://deno.land/x/bcrypt@v0.4.1/src/bcrypt/base64.ts": "b8266450a4f1eb6960f60f2f7986afc4dde6b45bd2d7ee7ba10789e67e17b9f7",
+    "https://deno.land/x/bcrypt@v0.4.1/src/bcrypt/bcrypt.ts": "ec221648cc6453ea5e3803bc817c01157dada06aa6f7a0ba6b9f87aae32b21e2",
+    "https://deno.land/x/bcrypt@v0.4.1/src/main.ts": "08d201b289c8d9c46f8839c69cd6625b213863db29775c7a200afc3b540e64f8"
   },
   "workspace": {
     "dependencies": [
@@ -77,6 +87,7 @@
         "npm:@babel/preset-env@^7.26.0",
         "npm:@babel/preset-typescript@^7.26.0",
         "npm:babel-jest@^29.7.0",
+        "npm:bcrypt@5.1.1",
         "npm:dayjs@1.11.13",
         "npm:jest@^29.7.0",
         "npm:prettier@3.3.3"
