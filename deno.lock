@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@da/bcrypt@1.0.0": "1.0.0",
     "jsr:@oh/yaml@1.1.0": "1.1.0",
     "jsr:@std/assert@^1.0.7": "1.0.7",
     "jsr:@std/expect@*": "1.0.7",
@@ -14,6 +15,9 @@
     "npm:dayjs@1.11.13": "1.11.13"
   },
   "jsr": {
+    "@da/bcrypt@1.0.0": {
+      "integrity": "615d5875bf153c825e98f3d065b24ec3de78051f5a8f352e1fea792228ac1060"
+    },
     "@oh/yaml@1.1.0": {
       "integrity": "57f2f01bf259dff8896fb9d8f4f49e477e6533ccc5cbc4559ebd8410142aeff5",
       "dependencies": [
@@ -74,6 +78,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@da/bcrypt@1.0.0",
       "jsr:@oh/yaml@1.1.0",
       "jsr:@std/fs@1.0.4",
       "jsr:@std/path@1.0.6",
@@ -87,7 +92,6 @@
         "npm:@babel/preset-env@^7.26.0",
         "npm:@babel/preset-typescript@^7.26.0",
         "npm:babel-jest@^29.7.0",
-        "npm:bcrypt@5.1.1",
         "npm:dayjs@1.11.13",
         "npm:jest@^29.7.0",
         "npm:prettier@3.3.3"

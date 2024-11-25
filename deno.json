@@ -8,12 +8,11 @@
     "@std/yaml": "jsr:@std/yaml@1.0.5",
 
     "@oh/yaml": "jsr:@oh/yaml@1.1.0",
+    "@da/bcrypt": "jsr:@da/bcrypt@1.0.0",
 
     "@zip-js": "jsr:@zip-js/zip-js@2.7.53",
 
-    "dayjs": "npm:dayjs@1.11.13",
-
-    "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts"
+    "dayjs": "npm:dayjs@1.11.13"
   },
   "tasks": {
     "test:watch": "deno test --watch=./src"
