@@ -53,5 +53,8 @@ jobs:
               "version": "${{ steps.set_version.outputs.tag }}"
             }
 
+      - name: run build
+        run: yarn run build
+
       - name: Publish package
-        run: npx jsr publish --allow-dirty
+        run: yarn run publish
