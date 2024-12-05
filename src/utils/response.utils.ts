@@ -1,4 +1,3 @@
-import { HttpStatusMessage } from "../enums/http-status-message.enums.ts";
 import { HttpStatusCode } from "../enums/http-status-code.enums.ts";
 
 /**
@@ -15,5 +14,7 @@ import { HttpStatusCode } from "../enums/http-status-code.enums.ts";
  * const response = getResponse(200, { message: "Request successful" });
  * Returns a JSON response with { "status": 200, "data": { "message": "Request successful" } }
  */
-export const getResponse = <Data>(status: HttpStatusCode, data: Data) =>
-  Response.json({ status, ...data }, { status });
+export const getResponse = <Data>(
+  status: HttpStatusCode,
+  data?: Data,
+): Response => Response.json({ status, ...(data || {}) }, { status });
