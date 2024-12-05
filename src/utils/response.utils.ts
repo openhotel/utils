@@ -13,11 +13,11 @@ import { HttpStatusCode } from "../enums/http-status-code.enums.ts";
  * @example
  * Example usage
  * const response = getResponse(200, { message: "Request successful" });
- * Returns a JSON response with { "statusCode": 200, "status": "Ok", "data": { "message": "Request successful" } }
+ * Returns a JSON response with { "status": 200, "data": { "message": "Request successful" } }
  */
-export const getResponse = (status: HttpStatusCode, data: any) =>
+export const getResponse = <Data>(status: HttpStatusCode, data: Data) =>
   Response.json(
-    { statusCode: status, status: HttpStatusMessage[status], ...data },
+    { status, ...data },
     { status },
   );
 
