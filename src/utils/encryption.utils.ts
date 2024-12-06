@@ -13,7 +13,7 @@ const deriveKey = async (key: string): Promise<CryptoKey> => {
   );
 };
 
-const encrypt = async (text: string, key: string): Promise<string> => {
+export const encrypt = async (text: string, key: string): Promise<string> => {
   const encoded = new TextEncoder().encode(text);
   const cryptoKey = await deriveKey(key);
 
@@ -28,7 +28,10 @@ const encrypt = async (text: string, key: string): Promise<string> => {
   return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
 };
 
-const decrypt = async (encryptedText: string, key: string): Promise<string> => {
+export const decrypt = async (
+  encryptedText: string,
+  key: string,
+): Promise<string> => {
   const encrypted = Uint8Array.from(atob(encryptedText), (c) =>
     c.charCodeAt(0),
   );
