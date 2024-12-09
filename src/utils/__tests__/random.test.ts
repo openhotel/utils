@@ -1,7 +1,7 @@
 import { describe, it, expect } from "@jest/globals";
 import { getRandomString } from "../random.utils.ts";
 
-describe("utls", () => {
+describe("utils", () => {
   describe("random", () => {
     describe("getRandomString", () => {
       it("should return a valid random string", () => {

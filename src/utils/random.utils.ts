@@ -2,15 +2,14 @@ export const getRandomNumber = (min: number, max: number): number =>
   Math.round(Math.random() * (max - min)) + min;
 
 export const getRandomString = (length: number): string => {
-  let result = "";
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   const charactersLength = characters.length;
   const randomValues = new Uint32Array(length);
   crypto.getRandomValues(randomValues);
-  randomValues.forEach(
-    (value) => (result += characters.charAt(value % charactersLength)),
-  );
+  const result = Array.from(randomValues)
+    .map((value) => characters.charAt(value % charactersLength))
+    .join("");
   return result;
 };
 
