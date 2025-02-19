@@ -39,7 +39,7 @@ export const compressDir = async (
   srcPath: string,
   destPath: string,
   password?: string,
-) => {
+): Promise<void> => {
   initConfigure();
 
   const blobWriter = new BlobWriter();
@@ -51,7 +51,7 @@ export const compressDir = async (
     path: string,
     zipWriter: ZipWriter,
     relativePath: string = "",
-  ) => {
+  ): Promise<void> => {
     for await (const entry of Deno.readDir(path)) {
       const fullPath = join(path, entry.name);
       const entryRelativePath = join(relativePath, entry.name);
@@ -78,7 +78,7 @@ export const compressFiles = async (
   files: string[],
   destPath: string,
   password?: string | null,
-) => {
+): Promise<void> => {
   initConfigure();
 
   const blobWriter = new BlobWriter();
