@@ -44,6 +44,26 @@ export const getS3 = ({
     await removeObjects(objectsList);
   };
 
+  const getObject = async (name: string): Promise<Uint8Array> => {
+    const dataStream = await client.getObject(bucket, name);
+    let chunks = new Uint8Array();
+
+    return new Promise((resolve, reject) => {
+      dataStream.on("data", (chunk) => {
+        const currentChunks = chunks;
+        chunks = new Uint8Array(currentChunks.length + chunk.length);
+        chunks.set(currentChunks, 0);
+        chunks.set(chunk, currentChunks.length);
+      });
+
+      dataStream.on("end", () => {
+        resolve(chunks);
+      });
+
+      dataStream.on("error", reject);
+    });
+  };
+
   const removeObjects = async (objects: S3ObjectInfo[]) => {
     await client.removeObjects(bucket, objects);
   };
@@ -72,6 +92,7 @@ export const getS3 = ({
     getFiles,
     removeFiles,
 
+    getObject,
     removeObjects,
   };
 };
