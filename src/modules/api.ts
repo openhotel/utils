@@ -1,5 +1,9 @@
 import { RequestMethod } from "../enums/request.enum.ts";
-import { RequestKind, type ApiProps } from "../types/request.types.ts";
+import {
+  RequestKind,
+  type ApiHandlerProps,
+  type ApiHandlerMutable,
+} from "../types/request.types.ts";
 import { REQUEST_KIND_COLOR_MAP } from "../consts/request.consts.ts";
 import { getResponse } from "../utils/response.utils.ts";
 import { HttpStatusCode } from "../enums/http-status-code.enums.ts";
@@ -9,7 +13,7 @@ export const getApiHandler = ({
   requests,
   checkAccess,
   testMode = false,
-}: ApiProps) => {
+}: ApiHandlerProps): ApiHandlerMutable => {
   const overview = () => {
     if (!testMode) {
       const maxLength = Math.max(
@@ -70,6 +74,9 @@ export const getApiHandler = ({
 
       return response;
     }
+
+    if (foundRequests.length) return getResponse(HttpStatusCode.OK);
+    return getResponse(HttpStatusCode.NOT_FOUND);
   };
 
   return {

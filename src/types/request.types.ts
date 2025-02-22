@@ -1,10 +1,15 @@
 import { RequestMethod } from "../enums/main.ts";
 
-export interface ApiProps {
+export interface ApiHandlerProps {
   requests: RequestType[];
   testMode?: boolean;
   checkAccess?: CheckAccess;
 }
+
+export type ApiHandlerMutable = {
+  overview: () => void;
+  on: (request: Request) => Promise<Response>;
+};
 
 export type RequestType<Data = undefined> = {
   pathname: string;
