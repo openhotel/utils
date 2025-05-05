@@ -1,4 +1,4 @@
-export enum CompanyPermissions {
+export enum CompanyPermissionsEnum {
   SPEND_CREDITS = "canSpendCredits",
   BUY_FURNIS = "canBuyFurnis",
   SELL_FURNIS = "canSellFurnis",

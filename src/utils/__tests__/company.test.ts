@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { CompanyPermissions } from "../../enums/company.enums.ts";
+import { CompanyPermissionsEnum } from "../../enums/company.enums.ts";
 import {
   decodeContractPermissions,
   encodeContractPermissions,
@@ -8,21 +8,21 @@ import {
 describe("utils", () => {
   describe("company", () => {
     const allTrue = {
-      [CompanyPermissions.SPEND_CREDITS]: true,
-      [CompanyPermissions.BUY_FURNIS]: true,
-      [CompanyPermissions.SELL_FURNIS]: true,
-      [CompanyPermissions.MOVE_FURNIS]: true,
-      [CompanyPermissions.CREATE_ROOMS]: true,
-      [CompanyPermissions.DELETE_ROOMS]: true,
+      [CompanyPermissionsEnum.SPEND_CREDITS]: true,
+      [CompanyPermissionsEnum.BUY_FURNIS]: true,
+      [CompanyPermissionsEnum.SELL_FURNIS]: true,
+      [CompanyPermissionsEnum.MOVE_FURNIS]: true,
+      [CompanyPermissionsEnum.CREATE_ROOMS]: true,
+      [CompanyPermissionsEnum.DELETE_ROOMS]: true,
     };
 
     const allFalse = {
-      [CompanyPermissions.SPEND_CREDITS]: false,
-      [CompanyPermissions.BUY_FURNIS]: false,
-      [CompanyPermissions.SELL_FURNIS]: false,
-      [CompanyPermissions.MOVE_FURNIS]: false,
-      [CompanyPermissions.CREATE_ROOMS]: false,
-      [CompanyPermissions.DELETE_ROOMS]: false,
+      [CompanyPermissionsEnum.SPEND_CREDITS]: false,
+      [CompanyPermissionsEnum.BUY_FURNIS]: false,
+      [CompanyPermissionsEnum.SELL_FURNIS]: false,
+      [CompanyPermissionsEnum.MOVE_FURNIS]: false,
+      [CompanyPermissionsEnum.CREATE_ROOMS]: false,
+      [CompanyPermissionsEnum.DELETE_ROOMS]: false,
     };
 
     describe("encode/decode contract permissions", () => {
@@ -48,12 +48,12 @@ describe("utils", () => {
 
       it("encode and decode consistency", () => {
         const original = {
-          [CompanyPermissions.SPEND_CREDITS]: true,
-          [CompanyPermissions.BUY_FURNIS]: false,
-          [CompanyPermissions.SELL_FURNIS]: true,
-          [CompanyPermissions.MOVE_FURNIS]: false,
-          [CompanyPermissions.CREATE_ROOMS]: true,
-          [CompanyPermissions.DELETE_ROOMS]: false,
+          [CompanyPermissionsEnum.SPEND_CREDITS]: true,
+          [CompanyPermissionsEnum.BUY_FURNIS]: false,
+          [CompanyPermissionsEnum.SELL_FURNIS]: true,
+          [CompanyPermissionsEnum.MOVE_FURNIS]: false,
+          [CompanyPermissionsEnum.CREATE_ROOMS]: true,
+          [CompanyPermissionsEnum.DELETE_ROOMS]: false,
         };
         const encoded = encodeContractPermissions(original);
         const decoded = decodeContractPermissions(encoded);
@@ -70,7 +70,7 @@ describe("utils", () => {
           "canDeleteRooms",
         ];
 
-        const enumOrder = Object.values(CompanyPermissions);
+        const enumOrder = Object.values(CompanyPermissionsEnum);
         expect(enumOrder).toEqual(expectedOrder);
       });
     });
