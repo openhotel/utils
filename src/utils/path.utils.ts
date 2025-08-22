@@ -12,5 +12,5 @@ export const getLocalPath = (filePath: string): string => {
   return path.join(__dirname, filePath);
 };
 
-export const getModulePath = (filePath: string) =>
+export const getModulePath = (filePath: string): string =>
   path.join(path.dirname(path.fromFileUrl(Deno.mainModule)), filePath);
