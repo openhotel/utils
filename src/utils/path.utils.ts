@@ -17,7 +17,7 @@ export const getModulePath = (filePath: string = ""): string => {
   return path.isAbsolute(filePath) ? filePath : path.join(root, filePath);
 };
 
-export const copyDirectory = async (srcPath: string, destPath: string)=> {
+export const copyDirectory = async (srcPath: string, destPath: string) => {
   await Deno.mkdir(destPath, { recursive: true });
 
   for await (const entry of Deno.readDir(srcPath)) {
@@ -30,4 +30,4 @@ export const copyDirectory = async (srcPath: string, destPath: string)=> {
       await Deno.copyFile($srcPath, $destPath);
     }
   }
-}
+};
