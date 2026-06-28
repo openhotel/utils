@@ -25,7 +25,7 @@ export const getApiHandler = <RequestKindT extends number = RequestKind>({
       for (const request of requests) {
         const kindList = (
           Array.isArray(request.kind) ? request.kind : [request.kind]
-        ).map((kind) => `color: ${requestKindColorMap[kind]}`);
+        ).map((kind) => `color: ${requestKindColorMap[Number(kind)]}`);
 
         console.log(
           ` %c${request.method.padStart(maxLength)} %c▓▓%c▓▓%c▓▓ %c${request.pathname}`,
